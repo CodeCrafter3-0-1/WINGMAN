@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Recommended Care Plan and Tests</h1>
+  <p>Signed in as {{ email }}</p>
+  <img src="/static/img/care-illustration.svg" alt="Care plan illustration" class="hero-img slim" />
+</section>
+
+<section class="card">
+  <div class="grid-info">
+    <div class="info-box">
+      <h3>Vitals to track weekly</h3>
+      <ul>
+        <li>Blood pressure (target often around normal range unless your clinician sets otherwise)</li>
+        <li>Weight and waist trend</li>
+        <li>Activity minutes and sleep duration</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Useful lab checks</h3>
+      <ul>
+        <li>Fasting glucose and HbA1c</li>
+        <li>Lipid profile (cholesterol panel)</li>
+        <li>Kidney panel (creatinine/eGFR, urine albumin)</li>
+        <li>Liver enzymes (ALT/AST) when risk is elevated</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Lifestyle priorities</h3>
+      <ul>
+        <li>150+ minutes/week moderate activity (as tolerated)</li>
+        <li>High-fiber meals, lower sugary drinks, lower excess salt</li>
+        <li>Smoking cessation and alcohol moderation</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>When to seek urgent care</h3>
+      <ul>
+        <li>Severe chest pain or severe shortness of breath</li>
+        <li>Sudden confusion, weakness, slurred speech, or fainting</li>
+        <li>Oxygen saturation persistently very low with symptoms</li>
+      </ul>
+    </div>
+  </div>
+  <p class="hint">
+    Use this page with your dashboard results and share both with a qualified clinician.
+  </p>
+</section>
+{% endblock %}

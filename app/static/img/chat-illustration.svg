@@ -1,0 +1,19 @@
+<svg width="640" height="380" viewBox="0 0 640 380" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="640" y2="380" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9333EA"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="380" rx="22" fill="url(#bg3)"/>
+  <rect x="86" y="84" width="212" height="110" rx="16" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="118" y="114" width="148" height="12" rx="6" fill="#38BDF8"/>
+  <rect x="118" y="138" width="116" height="10" rx="5" fill="#334155"/>
+  <path d="M116 194L142 194L116 216V194Z" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="344" y="170" width="210" height="108" rx="16" fill="#0F172A" fill-opacity="0.92"/>
+  <rect x="376" y="198" width="148" height="12" rx="6" fill="#A78BFA"/>
+  <rect x="376" y="222" width="122" height="10" rx="5" fill="#334155"/>
+  <path d="M528 278H500L528 302V278Z" fill="#0F172A" fill-opacity="0.92"/>
+  <circle cx="316" cy="190" r="44" fill="#F43F5E"/>
+  <path d="M316 172L322 183H334L324 190L328 202L316 195L304 202L308 190L298 183H310L316 172Z" fill="white"/>
+</svg>

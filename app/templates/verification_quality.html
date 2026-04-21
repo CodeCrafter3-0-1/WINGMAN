@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-split">
+    <div>
+      <h1>Verification and Model Quality</h1>
+      <p>Signed in as {{ email }}</p>
+      <div class="chip-row">
+        <span class="chip chip-blue">Transparent Logic</span>
+        <span class="chip chip-green">Data Completeness</span>
+        <span class="chip chip-purple">Continuous Improvement</span>
+      </div>
+    </div>
+    <img src="/static/img/care-illustration.svg" alt="Verification and quality visual" class="hero-img slim" />
+  </div>
+</section>
+
+<section class="card">
+  <div class="pro-feature-grid">
+    <article class="pro-feature-card">
+      <h4>Heuristic scoring</h4>
+      <p>Current predictions are rule-based risk heuristics calibrated for prototype usage.</p>
+    </article>
+    <article class="pro-feature-card">
+      <h4>Completeness calibration</h4>
+      <p>Scores are calibrated using data completeness to reduce overconfidence with sparse inputs.</p>
+    </article>
+    <article class="pro-feature-card">
+      <h4>Urgent flag priority</h4>
+      <p>Urgent symptom pathways override mild-score behavior to prioritize patient safety.</p>
+    </article>
+    <article class="pro-feature-card">
+      <h4>Planned upgrades</h4>
+      <p>Future versions can include dataset validation, threshold tuning, and outcome tracking.</p>
+    </article>
+  </div>
+  <div class="grid-info">
+    <div class="info-box tone-blue">
+      <h3>Verification checklist</h3>
+      <ul>
+        <li>Test with complete vs minimal input profiles</li>
+        <li>Review top contributors for clinical plausibility</li>
+        <li>Confirm urgent pathways trigger as expected</li>
+      </ul>
+    </div>
+    <div class="info-box tone-green">
+      <h3>Recommended governance</h3>
+      <ul>
+        <li>Clinical oversight for threshold changes</li>
+        <li>Versioned release notes for scoring updates</li>
+        <li>Periodic review of false positives/negatives</li>
+      </ul>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn-link" href="/terms-and-conditions">View Terms</a>
+    <a class="btn-link secondary-link" href="/dashboard/results">Open Latest Results</a>
+  </div>
+</section>
+{% endblock %}

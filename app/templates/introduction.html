@@ -1,0 +1,311 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="intro-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="welcome-badge">
+          <i class="fas fa-user-check"></i>
+          Signed in as {{ email }}
+        </div>
+        <h1 class="hero-title">
+          <span class="gradient-text">Welcome to HealthBot</span>
+          <br>
+          <span class="hero-subtitle">Your AI-Powered Health Companion</span>
+        </h1>
+        <p class="hero-description">
+          Advanced risk screening, personalized care planning, and intelligent health guidance—all in one secure platform.
+        </p>
+        <div class="hero-features">
+          <div class="feature-chip">
+            <i class="fas fa-brain"></i>
+            <span>AI-Powered</span>
+          </div>
+          <div class="feature-chip">
+            <i class="fas fa-shield-alt"></i>
+            <span>Secure & Private</span>
+          </div>
+          <div class="feature-chip">
+            <i class="fas fa-chart-line"></i>
+            <span>Evidence-Based</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-container">
+          <img src="/static/img/health-hero.svg" alt="Health analytics illustration" class="hero-image" />
+          <div class="floating-elements">
+            <div class="floating-card card-1">
+              <i class="fas fa-heartbeat"></i>
+              <span>Risk Analysis</span>
+            </div>
+            <div class="floating-card card-2">
+              <i class="fas fa-stethoscope"></i>
+              <span>Care Planning</span>
+            </div>
+            <div class="floating-card card-3">
+              <i class="fas fa-robot"></i>
+              <span>AI Assistant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do Section -->
+  <section class="info-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>What HealthBot Does</h2>
+        <p>Comprehensive health risk assessment powered by advanced algorithms</p>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-card primary">
+          <div class="card-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>Smart Risk Screening</h3>
+          <p>Analyzes symptoms, medical history, and lifestyle factors to estimate disease risk across multiple conditions.</p>
+        </div>
+
+        <div class="info-card secondary">
+          <div class="card-icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <h3>Personalized Care Plans</h3>
+          <p>Creates tailored prevention strategies and actionable recommendations based on your unique risk profile.</p>
+        </div>
+
+        <div class="info-card accent">
+          <div class="card-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>AI Health Assistant</h3>
+          <p>Get instant answers to health questions and guidance through our intelligent chatbot interface.</p>
+        </div>
+      </div>
+
+      <div class="model-info">
+        <div class="model-card">
+          <h3><i class="fas fa-info-circle"></i> About Our Risk Model</h3>
+          <p>HealthBot uses a transparent, rule-based scoring system that combines age, symptoms, medical history, lifestyle factors, and optional measurements. The model is calibrated for data completeness and designed for early screening support, not clinical diagnosis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workflow Section -->
+  <section class="workflow-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>How It Works</h2>
+        <p>Simple 4-step process from assessment to action</p>
+      </div>
+
+      <div class="workflow-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Input Your Profile</h3>
+            <p>Enter age, symptoms, lifestyle habits, and optional measurements in our user-friendly dashboard.</p>
+          </div>
+        </div>
+
+        <div class="step-arrow">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>AI Risk Analysis</h3>
+            <p>Our system computes risk levels for heart disease, diabetes, stroke, respiratory, kidney, and liver conditions.</p>
+          </div>
+        </div>
+
+        <div class="step-arrow">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Review Results</h3>
+            <p>Get detailed risk scores, top contributors, and personalized preventive measures.</p>
+          </div>
+        </div>
+
+        <div class="step-arrow">
+          <i class="fas fa-arrow-right"></i>
+        </div>
+
+        <div class="step">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Take Action</h3>
+            <p>Use care plans, medicine guides, and wellness programs to implement positive health changes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Risk Categories Section -->
+  <section class="categories-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Risk Categories We Assess</h2>
+        <p>Comprehensive screening across major health conditions</p>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-icon heart">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Heart Disease</h3>
+          <p>Cardiovascular risk assessment including coronary artery disease and related conditions.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon diabetes">
+            <i class="fas fa-syringe"></i>
+          </div>
+          <h3>Diabetes</h3>
+          <p>Type 2 diabetes and prediabetes risk evaluation based on glucose levels and risk factors.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon stroke">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3>Stroke</h3>
+          <p>Cerebrovascular risk assessment including ischemic and hemorrhagic stroke prevention.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon respiratory">
+            <i class="fas fa-lungs"></i>
+          </div>
+          <h3>Respiratory Disorders</h3>
+          <p>Assessment for asthma, COPD, and other chronic respiratory conditions.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon kidney">
+            <i class="fas fa-kidney"></i>
+          </div>
+          <h3>Kidney Disease</h3>
+          <p>Chronic kidney disease risk evaluation and early detection markers.</p>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon liver">
+            <i class="fas fa-liver"></i>
+          </div>
+          <h3>Metabolic Liver Risk</h3>
+          <p>Non-alcoholic fatty liver disease and metabolic liver condition assessment.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="tips-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Get Better Results</h2>
+        <p>Tips for more accurate risk assessments</p>
+      </div>
+
+      <div class="tips-grid">
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-tachometer-alt"></i>
+          </div>
+          <h3>Add Measurements</h3>
+          <p>Include blood pressure, glucose levels, and SpO2 readings when available for more precise risk calculations.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-tags"></i>
+          </div>
+          <h3>Use Exact Tags</h3>
+          <p>Use the suggested tags in dashboard fields or load example data to ensure proper recognition.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon">
+            <i class="fas fa-edit"></i>
+          </div>
+          <h3>Be Accurate</h3>
+          <p>Provide honest lifestyle information (activity levels, sleep, smoking, alcohol) for personalized results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Safety Section -->
+  <section class="safety-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2>Important Safety Information</h2>
+        <p>Responsible use and clinical safety guidelines</p>
+      </div>
+
+      <div class="safety-grid">
+        <div class="safety-card warning">
+          <div class="safety-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h3>Not a Substitute for Care</h3>
+          <p>This platform is a screening and support tool. It is not a substitute for clinical diagnosis, emergency care, or prescription decisions.</p>
+        </div>
+
+        <div class="safety-card info">
+          <div class="safety-icon">
+            <i class="fas fa-check-circle"></i>
+          </div>
+          <h3>Data Quality Matters</h3>
+          <p>Better input quality leads to better screening quality. Add optional measurements when available, but the system works with basic self-reported details.</p>
+        </div>
+
+        <div class="safety-card urgent">
+          <div class="safety-icon">
+            <i class="fas fa-ambulance"></i>
+          </div>
+          <h3>Urgent Warning Signs</h3>
+          <p>For severe chest pain, severe shortness of breath, sudden weakness, confusion, or fainting, seek urgent medical care immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="section-container">
+      <div class="cta-content">
+        <h2>Ready to Start Your Health Journey?</h2>
+        <p>Begin with a comprehensive risk assessment and take control of your health today.</p>
+        <div class="cta-buttons">
+          <a href="/dashboard" class="cta-button primary">
+            <i class="fas fa-play"></i>
+            Start Screening Now
+          </a>
+          <a href="/chatbot" class="cta-button secondary">
+            <i class="fas fa-comments"></i>
+            Try AI Assistant
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+{% endblock %}
+

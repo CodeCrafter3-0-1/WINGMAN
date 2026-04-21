@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="dashboard-page">
+  <!-- Header Section -->
+  <section class="dashboard-header">
+    <div class="header-content">
+      <div class="header-text">
+        <div class="user-badge">
+          <i class="fas fa-user-check"></i>
+          Signed in as {{ email }}
+        </div>
+        <h1>Health Risk Assessment</h1>
+        <p>Complete your profile to receive personalized risk analysis and care recommendations</p>
+      </div>
+      <div class="header-actions">
+        <button id="loadExample" type="button" class="action-btn secondary">
+          <i class="fas fa-magic"></i>
+          Load Example Data
+        </button>
+        <button id="logoutBtn" type="button" class="action-btn danger">
+          <i class="fas fa-sign-out-alt"></i>
+          Logout
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Indicator -->
+  <section class="progress-section">
+    <div class="progress-container">
+      <div class="progress-header">
+        <h2>Assessment Progress</h2>
+        <div class="progress-stats">
+          <span id="completion-percentage">0%</span>
+          <span>Complete</span>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-steps">
+        <div class="step-indicator active" data-step="1">
+          <i class="fas fa-user"></i>
+          <span>Basic Info</span>
+        </div>
+        <div class="step-indicator" data-step="2">
+          <i class="fas fa-heartbeat"></i>
+          <span>Health Data</span>
+        </div>
+        <div class="step-indicator" data-step="3">
+          <i class="fas fa-stethoscope"></i>
+          <span>Measurements</span>
+        </div>
+        <div class="step-indicator" data-step="4">
+          <i class="fas fa-chart-line"></i>
+          <span>Analysis</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Form -->
+  <section class="form-section">
+    <form id="predictForm" class="assessment-form">
+      <!-- Basic Information Section -->
+      <div class="form-section-card" data-section="1">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="section-title">
+            <h3>Basic Information</h3>
+            <p>Tell us about yourself to get started</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="age">
+              <i class="fas fa-birthday-cake"></i>
+              Age
+            </label>
+            <input id="age" type="number" min="0" max="120" placeholder="Enter your age" required />
+            <span class="field-hint">Years old</span>
+          </div>
+
+          <div class="form-group">
+            <label for="sex">
+              <i class="fas fa-venus-mars"></i>
+              Biological Sex
+            </label>
+            <select id="sex" required>
+              <option value="" disabled selected>Choose your sex</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Physical Measurements Section -->
+      <div class="form-section-card" data-section="2">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-weight"></i>
+          </div>
+          <div class="section-title">
+            <h3>Physical Measurements</h3>
+            <p>Help us calculate your BMI and other health metrics</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="height">
+              <i class="fas fa-ruler-vertical"></i>
+              Height
+            </label>
+            <input id="height" type="number" step="0.1" placeholder="Enter height" />
+            <span class="field-hint">Centimeters (cm)</span>
+          </div>
+
+          <div class="form-group">
+            <label for="weight">
+              <i class="fas fa-weight-hanging"></i>
+              Weight
+            </label>
+            <input id="weight" type="number" step="0.1" placeholder="Enter weight" />
+            <span class="field-hint">Kilograms (kg)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lifestyle Section -->
+      <div class="form-section-card" data-section="2">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-running"></i>
+          </div>
+          <div class="section-title">
+            <h3>Lifestyle Factors</h3>
+            <p>Your daily habits play a crucial role in health assessment</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="activity">
+              <i class="fas fa-dumbbell"></i>
+              Weekly Exercise
+            </label>
+            <input id="activity" type="number" placeholder="Minutes per week" />
+            <span class="field-hint">Total exercise minutes</span>
+          </div>
+
+          <div class="form-group">
+            <label for="sleep">
+              <i class="fas fa-moon"></i>
+              Daily Sleep
+            </label>
+            <input id="sleep" type="number" step="0.1" placeholder="Hours per night" />
+            <span class="field-hint">Average hours of sleep</span>
+          </div>
+
+          <div class="form-group">
+            <label for="smoker">
+              <i class="fas fa-smoking"></i>
+              Smoking Status
+            </label>
+            <select id="smoker">
+              <option value="false">Non-smoker</option>
+              <option value="true">Current smoker</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="alcohol">
+              <i class="fas fa-wine-glass-alt"></i>
+              Alcohol Consumption
+            </label>
+            <input id="alcohol" type="number" placeholder="Drinks per week" />
+            <span class="field-hint">Standard drinks per week</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Health History Section -->
+      <div class="form-section-card" data-section="2">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-history"></i>
+          </div>
+          <div class="section-title">
+            <h3>Family Health History</h3>
+            <p>Family medical history helps identify genetic risk factors</p>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="family">
+            <i class="fas fa-users"></i>
+            Family History
+          </label>
+          <input id="family" placeholder="e.g., heart_disease, diabetes, asthma" />
+          <span class="field-hint">Comma-separated: heart_disease, diabetes, asthma, copd</span>
+        </div>
+      </div>
+
+      <!-- Current Conditions Section -->
+      <div class="form-section-card" data-section="2">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-notes-medical"></i>
+          </div>
+          <div class="section-title">
+            <h3>Current Health Conditions</h3>
+            <p>List any existing medical conditions you have been diagnosed with</p>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="conditions">
+            <i class="fas fa-stethoscope"></i>
+            Medical Conditions
+          </label>
+          <input id="conditions" placeholder="e.g., hypertension, high_cholesterol, diabetes" />
+          <span class="field-hint">Comma-separated: hypertension, high_cholesterol, diabetes, asthma</span>
+        </div>
+      </div>
+
+      <!-- Symptoms Section -->
+      <div class="form-section-card" data-section="2">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-thermometer-half"></i>
+          </div>
+          <div class="section-title">
+            <h3>Current Symptoms</h3>
+            <p>Describe any symptoms you've been experiencing recently</p>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label for="symptoms">
+            <i class="fas fa-list-ul"></i>
+            Symptoms
+          </label>
+          <input id="symptoms" placeholder="e.g., chest_pain, fatigue, shortness_of_breath" />
+          <span class="field-hint">Comma-separated: chest_pain, shortness_of_breath, fatigue, dizziness</span>
+        </div>
+      </div>
+
+      <!-- Patient Condition Description Section -->
+      <div class="form-section-card optional-section" data-section="2">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <div class="section-title">
+            <h3>Additional Condition Details <span class="optional-badge">Optional</span></h3>
+            <p>Describe your current health condition in more detail</p>
+          </div>
+          <button type="button" class="toggle-btn" id="conditionToggle">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="condition-content" id="conditionContent">
+          <div class="form-group full-width">
+            <label for="condition_description">
+              <i class="fas fa-edit"></i>
+              Condition Description
+            </label>
+            <textarea id="condition_description" rows="4" placeholder="Please describe your current health condition, how long you've had symptoms, any recent changes, or additional details about your symptoms that might help with the assessment..."></textarea>
+            <span class="field-hint">Optional: Provide more context about your symptoms and overall condition</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Optional Measurements Section -->
+      <div class="form-section-card optional-section" data-section="3">
+        <div class="section-header">
+          <div class="section-icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <div class="section-title">
+            <h3>Medical Measurements <span class="optional-badge">Optional</span></h3>
+            <p>Include lab results or vital signs if available for more accurate assessment</p>
+          </div>
+          <button type="button" class="toggle-btn" id="measurementsToggle">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+
+        <div class="measurements-content" id="measurementsContent">
+          <div class="measurements-notice">
+            <i class="fas fa-info-circle"></i>
+            <p>These measurements significantly improve the accuracy of your risk assessment. Include them if you have recent results.</p>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="bpSys">
+                <i class="fas fa-heartbeat"></i>
+                Systolic BP
+              </label>
+              <input id="bpSys" type="number" placeholder="120" />
+              <span class="field-hint">mmHg (upper number)</span>
+            </div>
+
+            <div class="form-group">
+              <label for="bpDia">
+                <i class="fas fa-heartbeat"></i>
+                Diastolic BP
+              </label>
+              <input id="bpDia" type="number" placeholder="80" />
+              <span class="field-hint">mmHg (lower number)</span>
+            </div>
+
+            <div class="form-group">
+              <label for="glucose">
+                <i class="fas fa-tint"></i>
+                Fasting Glucose
+              </label>
+              <input id="glucose" type="number" placeholder="Blood sugar level" />
+              <span class="field-hint">mg/dL</span>
+            </div>
+
+            <div class="form-group">
+              <label for="randomGlucose">
+                <i class="fas fa-tint"></i>
+                Random Glucose
+              </label>
+              <input id="randomGlucose" type="number" placeholder="Non-fasting glucose" />
+              <span class="field-hint">mg/dL</span>
+            </div>
+
+            <div class="form-group">
+              <label for="spo2">
+                <i class="fas fa-lungs"></i>
+                Blood Oxygen (SpO2)
+              </label>
+              <input id="spo2" type="number" placeholder="98" />
+              <span class="field-hint">Percentage (%)</span>
+            </div>
+
+            <div class="form-group">
+              <label for="restingHr">
+                <i class="fas fa-heartbeat"></i>
+                Resting Heart Rate
+              </label>
+              <input id="restingHr" type="number" placeholder="70" />
+              <span class="field-hint">BPM (beats per minute)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Actions -->
+      <div class="form-actions">
+        <div class="error-message" id="predictionError"></div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <span id="submitText">Run AI Risk Analysis</span>
+          <i class="fas fa-rocket"></i>
+        </button>
+        <p class="form-disclaimer">
+          <i class="fas fa-shield-alt"></i>
+          Your data is secure and used only for this health assessment. Results are not a medical diagnosis.
+        </p>
+      </div>
+    </form>
+  </section>
+</div>
+
+<script src="/static/js/dashboard.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+{% endblock %}
+

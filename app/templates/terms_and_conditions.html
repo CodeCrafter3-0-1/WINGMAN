@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-split">
+    <div>
+      <h1>Terms and Conditions</h1>
+      <p>Signed in as {{ email }}</p>
+      <div class="chip-row">
+        <span class="chip chip-blue">Prototype Use</span>
+        <span class="chip chip-green">Data Responsibility</span>
+        <span class="chip chip-purple">Safety First</span>
+      </div>
+    </div>
+    <img src="/static/img/health-hero.svg" alt="Terms and governance visual" class="hero-img slim" />
+  </div>
+</section>
+
+<section class="card">
+  <div class="grid-info">
+    <div class="info-box tone-blue">
+      <h3>1) Informational tool only</h3>
+      <p>This platform provides risk screening estimates and does not provide diagnosis or treatment prescriptions.</p>
+    </div>
+    <div class="info-box tone-green">
+      <h3>2) User input responsibility</h3>
+      <p>Outputs depend on input quality. Enter accurate values and update information regularly for better screening quality.</p>
+    </div>
+    <div class="info-box tone-blue">
+      <h3>3) Clinical decision requirement</h3>
+      <p>Any medication changes, investigations, or treatment actions must be decided by qualified clinicians.</p>
+    </div>
+    <div class="info-box tone-green">
+      <h3>4) Urgent symptoms policy</h3>
+      <p>For severe chest pain, severe breathing issues, or sudden neurologic changes, seek urgent care immediately.</p>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn-link" href="/verification-quality">Open Verification Page</a>
+    <a class="btn-link secondary-link" href="/dashboard">Back to Dashboard</a>
+  </div>
+</section>
+{% endblock %}

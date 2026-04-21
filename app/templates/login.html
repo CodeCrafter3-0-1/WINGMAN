@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | HealthBot</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-header">
+      <div class="logo">
+        <i class="fas fa-heartbeat"></i>
+        <span>HealthBot</span>
+      </div>
+      <h1>Welcome Back</h1>
+      <p>Sign in to access your personalized health dashboard</p>
+    </div>
+
+    <div class="auth-card">
+      <div class="demo-buttons">
+        <button id="fillAdmin" type="button" class="demo-btn">
+          <i class="fas fa-user-shield"></i>
+          Admin Demo
+        </button>
+        <button id="fillDoctor" type="button" class="demo-btn">
+          <i class="fas fa-user-md"></i>
+          Doctor Demo
+        </button>
+      </div>
+
+      <div class="divider">
+        <span>or sign in with email</span>
+      </div>
+
+      <form id="loginForm" class="login-form">
+        <div class="form-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Email Address
+          </label>
+          <input id="email" type="email" required autocomplete="username" placeholder="Enter your email" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">
+            <i class="fas fa-lock"></i>
+            Password
+          </label>
+          <div class="password-input">
+            <input id="password" type="password" required autocomplete="current-password" placeholder="Enter your password" />
+            <button type="button" class="password-toggle" id="passwordToggle">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button id="loginBtn" type="submit" class="login-btn">
+          <span>Sign In</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+
+        <div class="form-footer">
+          <p id="loginError" class="error-message"></p>
+          <div class="demo-hint">
+            <i class="fas fa-info-circle"></i>
+            <small>Demo accounts: admin@example.com / admin123 or doctor@example.com / doctor123</small>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="auth-features">
+      <div class="feature">
+        <i class="fas fa-shield-alt"></i>
+        <span>Secure & Private</span>
+      </div>
+      <div class="feature">
+        <i class="fas fa-brain"></i>
+        <span>AI-Powered</span>
+      </div>
+      <div class="feature">
+        <i class="fas fa-chart-line"></i>
+        <span>Evidence-Based</span>
+      </div>
+    </div>
+  </div>
+
+  <footer class="auth-footer">
+    <p>© 2026 HealthBot. <a href="/terms-and-conditions">Terms</a> | <a href="/faq-support">Support</a> | <a href="/verification-quality">Quality</a></p>
+  </footer>
+  <script src="/static/js/login.js"></script>
+</body>
+</html>
+

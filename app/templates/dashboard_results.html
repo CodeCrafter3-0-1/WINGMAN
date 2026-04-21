@@ -1,0 +1,295 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="results-page">
+  <!-- Header Section -->
+  <section class="results-header">
+    <div class="header-content">
+      <div class="header-text">
+        <div class="user-badge">
+          <i class="fas fa-user-check"></i>
+          Signed in as {{ email }}
+        </div>
+        <h1>Your Health Risk Assessment</h1>
+        <p>Comprehensive analysis of your health risks with personalized recommendations</p>
+        <div class="result-badges">
+          <span class="badge badge-blue">
+            <i class="fas fa-chart-line"></i>
+            Personalized Summary
+          </span>
+          <span class="badge badge-green">
+            <i class="fas fa-lightbulb"></i>
+            Actionable Tips
+          </span>
+          <span class="badge badge-purple">
+            <i class="fas fa-chart-bar"></i>
+            Visual Risk Cards
+          </span>
+        </div>
+      </div>
+      <div class="header-visual">
+        <div class="results-illustration">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <a href="/dashboard" class="action-btn secondary">
+        <i class="fas fa-arrow-left"></i>
+        Back to Assessment
+      </a>
+      <a href="/care-plan" class="action-btn primary">
+        <i class="fas fa-clipboard-list"></i>
+        View Care Plan
+      </a>
+      <button id="logoutBtn" type="button" class="action-btn danger">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+      </button>
+    </div>
+  </section>
+
+  <!-- Error State -->
+  <div id="errorState" class="error-state" style="display: none;">
+    <div class="error-container">
+      <div class="error-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h2>No Assessment Data Found</h2>
+      <p>Please complete the health assessment form to view your risk analysis.</p>
+      <a href="/dashboard" class="error-btn">
+        <i class="fas fa-plus"></i>
+        Start Assessment
+      </a>
+    </div>
+  </div>
+
+  <!-- Results Content -->
+  <div id="resultsContent">
+    <!-- Assessment Overview -->
+    <section class="overview-section">
+      <div class="overview-container">
+        <div class="overview-header">
+          <h2>Assessment Overview</h2>
+          <div class="assessment-meta" id="assessmentMeta"></div>
+        </div>
+        <div class="overview-stats">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="assessmentDate">--</div>
+              <div class="stat-label">Assessment Date</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-brain"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="aiModel">HealthRisk AI v1.0</div>
+              <div class="stat-label">AI Model Used</div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="stat-content">
+              <div class="stat-value" id="confidence">--</div>
+              <div class="stat-label">Data Completeness</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Your Input Summary -->
+    <section class="input-summary-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Your Provided Information</h2>
+          <p>Summary of the data you entered for this assessment</p>
+        </div>
+        <div class="input-summary-grid" id="inputSummary">
+          <!-- Input summary will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Risk Summary -->
+    <section class="risk-summary-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Risk Summary</h2>
+          <p>Your personalized risk assessment across major health categories</p>
+        </div>
+        <div class="risk-grid" id="quickSummary">
+          <!-- Risk cards will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Results -->
+    <section class="detailed-results-section">
+      <div class="section-container">
+        <div class="section-header">
+          <h2>Detailed Risk Analysis</h2>
+          <p>Comprehensive breakdown of your health risk predictions with actionable insights</p>
+        </div>
+        <div class="results-container" id="results">
+          <!-- Detailed results will be populated by JavaScript -->
+        </div>
+        <div class="condition-description" id="conditionDescription" style="display: none;">
+          <h3><i class="fas fa-comment-medical"></i> Your Condition Description</h3>
+          <div class="condition-text" id="conditionText"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Buttons -->
+    <section class="actions-section">
+      <div class="section-container">
+        <div class="actions-header">
+          <h2>Recommended Actions</h2>
+          <p>Take the next steps to improve your health based on your assessment</p>
+        </div>
+        <div class="actions-grid">
+          <a href="/care-plan" class="action-card primary">
+            <div class="action-icon">
+              <i class="fas fa-clipboard-list"></i>
+            </div>
+            <div class="action-content">
+              <h3>Create Care Plan</h3>
+              <p>Get personalized recommendations and track your progress</p>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+          <a href="/dashboard" class="action-card secondary">
+            <div class="action-icon">
+              <i class="fas fa-redo"></i>
+            </div>
+            <div class="action-content">
+              <h3>Update Assessment</h3>
+              <p>Modify your information or add new measurements</p>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+          <button id="printBtn" class="action-card info">
+            <div class="action-icon">
+              <i class="fas fa-print"></i>
+            </div>
+            <div class="action-content">
+              <h3>Print Results</h3>
+              <p>Save or print your assessment for your records</p>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </button>
+          <a href="/faq-support" class="action-card info">
+            <div class="action-icon">
+              <i class="fas fa-question-circle"></i>
+            </div>
+            <div class="action-content">
+              <h3>Get Support</h3>
+              <p>Learn more about your results and next steps</p>
+            </div>
+            <div class="action-arrow">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Next Steps -->
+    <section class="next-steps-section">
+      <div class="section-container">
+        <div class="next-steps-content">
+          <h2>What Happens Next?</h2>
+          <div id="nextSteps">
+            <!-- Next steps will be populated by JavaScript -->
+          </div>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3>Review Your Results</h3>
+                <p>Take time to understand your risk factors and current health status.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3>Follow Recommendations</h3>
+                <p>Implement the suggested lifestyle changes and monitoring steps.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3>Schedule Follow-up</h3>
+                <p>Consult healthcare providers and schedule regular check-ups.</p>
+              </div>
+            </div>
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3>Track Progress</h3>
+                <p>Reassess periodically to monitor improvements and adjust plans.</p>
+              </div>
+            </div>
+          </div>
+          <div class="next-actions">
+            <a href="/care-plan" class="primary-btn">
+              <i class="fas fa-clipboard-list"></i>
+              Create Care Plan
+            </a>
+            <a href="/dashboard" class="secondary-btn">
+              <i class="fas fa-redo"></i>
+              Update Assessment
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer-section">
+      <div class="disclaimer-container">
+        <div class="disclaimer-content">
+          <div class="disclaimer-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <div class="disclaimer-text">
+            <h3>Important Medical Disclaimer</h3>
+            <p>This AI-powered assessment provides risk estimates based on the information you provided. It is not a substitute for professional medical advice, diagnosis, or treatment. Always consult with qualified healthcare providers for medical concerns and before making significant health decisions.</p>
+            <div class="disclaimer-badges">
+              <span class="disclaimer-badge">
+                <i class="fas fa-user-md"></i>
+                Not Medical Advice
+              </span>
+              <span class="disclaimer-badge">
+                <i class="fas fa-brain"></i>
+                AI-Generated Estimates
+              </span>
+              <span class="disclaimer-badge">
+                <i class="fas fa-stethoscope"></i>
+                Consult Professionals
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="/static/js/dashboard_results.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+{% endblock %}

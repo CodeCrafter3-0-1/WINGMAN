@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>30-Day Wellness Program</h1>
+  <p>Signed in as {{ email }}</p>
+</section>
+
+<section class="card">
+  <p>Use this program as a practical routine to improve risk factors shown on your dashboard.</p>
+  <div class="grid-info">
+    <div class="info-box">
+      <h3>Week 1: Baseline</h3>
+      <ul>
+        <li>Track blood pressure 3 times this week</li>
+        <li>Record sleep and activity daily</li>
+        <li>Reduce sugary drinks and processed snacks</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Week 2: Build routine</h3>
+      <ul>
+        <li>Reach 120-150 active minutes this week</li>
+        <li>Add 1 high-fiber meal per day</li>
+        <li>Set a fixed sleep/wake schedule</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Week 3: Intensify safely</h3>
+      <ul>
+        <li>Add 2 sessions of light strength training</li>
+        <li>Decrease salt and alcohol intake further</li>
+        <li>Review symptom changes</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Week 4: Review and plan</h3>
+      <ul>
+        <li>Re-run your prediction in dashboard</li>
+        <li>Compare trends from week 1 to week 4</li>
+        <li>Share progress with a clinician if needed</li>
+      </ul>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn-link" href="/dashboard">Run New Screening</a>
+    <a class="btn-link secondary-link" href="/care-plan">Open Care Plan</a>
+  </div>
+</section>
+{% endblock %}

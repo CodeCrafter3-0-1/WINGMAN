@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <div class="hero-split">
+    <div>
+      <h1>FAQ and Support</h1>
+      <p>Signed in as {{ email }}</p>
+      <div class="chip-row">
+        <span class="chip chip-blue">Clear Answers</span>
+        <span class="chip chip-green">Practical Guidance</span>
+        <span class="chip chip-purple">Quick Access</span>
+      </div>
+    </div>
+    <img src="/static/img/chat-illustration.svg" alt="Support and FAQ illustration" class="hero-img slim" />
+  </div>
+</section>
+
+<section class="card">
+  <div class="pro-banner">
+    <div>
+      <h3>Need help understanding results?</h3>
+      <p>Use these answers as a quick reference, then open chatbot or care plan for deeper guidance.</p>
+    </div>
+    <img src="/static/img/health-hero.svg" alt="Information center visual" class="hero-img slim" />
+  </div>
+  <div class="grid-info">
+    <div class="info-box tone-blue">
+      <h3>Is this a diagnosis tool?</h3>
+      <p>No. It is a screening aid to highlight risk and suggest next steps.</p>
+    </div>
+    <div class="info-box tone-green">
+      <h3>Do I need all measurements?</h3>
+      <p>No. Fasting glucose, SpO2, random glucose, and resting HR are optional. Add them only if available.</p>
+    </div>
+    <div class="info-box tone-blue">
+      <h3>What if I see high or urgent risk?</h3>
+      <p>Use the care plan and seek medical advice. For severe symptoms, seek urgent care immediately.</p>
+    </div>
+    <div class="info-box tone-green">
+      <h3>How to improve prediction quality?</h3>
+      <p>Keep lifestyle and symptom data accurate, and update BP/measurement values regularly.</p>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn-link" href="/chatbot">Ask Chatbot</a>
+    <a class="btn-link secondary-link" href="/dashboard">Back to Dashboard</a>
+  </div>
+</section>
+{% endblock %}

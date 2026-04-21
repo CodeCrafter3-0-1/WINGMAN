@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Health Assistant Chatbot</h1>
+  <p>Ask about risk scores, prevention, and consultation guidance.</p>
+  <img src="/static/img/chat-illustration.svg" alt="Chat assistant illustration" class="hero-img slim" />
+</section>
+
+<section class="card chat-wrap">
+  <div id="chatLog" class="chat-log">
+    <div class="bubble bot">Hello! I am your health screening assistant. How can I help?</div>
+  </div>
+  <form id="chatForm" class="chat-form">
+    <input id="chatInput" placeholder="Type your question..." />
+    <button type="submit">Send</button>
+  </form>
+</section>
+<script src="/static/js/chatbot.js"></script>
+{% endblock %}
+

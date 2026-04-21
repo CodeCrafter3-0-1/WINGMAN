@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title or "HealthBot" }}</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">HealthBot</div>
+    <nav class="nav">
+      <a href="/introduction">Introduction</a>
+      <a href="/dashboard">Dashboard</a>
+      <a href="/recommended-medicines">Medicines Guide</a>
+      <a href="/care-plan">Care Plan</a>
+      <a href="/wellness-program">Wellness Program</a>
+      <a href="/verification-quality">Verification</a>
+      <a href="/chatbot">Chatbot</a>
+      <a href="/docs">API Docs</a>
+    </nav>
+  </header>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">HealthBot</div>
+      <div class="footer-links">
+        <a href="/faq-support">FAQs</a>
+        <a href="/terms-and-conditions">Terms and Conditions</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+  <h1>Recommended Medicines (General Guide)</h1>
+  <p>Signed in as {{ email }}</p>
+</section>
+
+<section class="card">
+  <p class="error">
+    Informational only. Do not start, stop, or change medicines without clinician advice.
+  </p>
+  <div class="grid-info">
+    <div class="info-box">
+      <h3>Heart / BP risk discussions</h3>
+      <ul>
+        <li>ACE inhibitors / ARBs (for blood pressure and kidney protection in selected patients)</li>
+        <li>Calcium channel blockers or thiazide diuretics for BP control plans</li>
+        <li>Statins for cholesterol and cardiovascular risk reduction</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Diabetes risk discussions</h3>
+      <ul>
+        <li>Metformin is commonly used for type 2 diabetes and prediabetes in some cases</li>
+        <li>GLP-1 / SGLT2 class medicines may be considered in selected patients</li>
+        <li>A1c and glucose trends should guide treatment decisions</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Respiratory risk discussions</h3>
+      <ul>
+        <li>Reliever inhalers (for example short-acting bronchodilators)</li>
+        <li>Controller inhalers (inhaled corticosteroid-based plans for asthma/COPD as indicated)</li>
+        <li>Vaccinations and trigger avoidance are important parts of care</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Kidney and liver protection</h3>
+      <ul>
+        <li>Kidney-safe BP and diabetes control may lower long-term risk</li>
+        <li>Avoid frequent unsupervised painkiller use (especially some NSAIDs)</li>
+        <li>Alcohol reduction and weight management support liver health</li>
+      </ul>
+    </div>
+  </div>
+</section>
+{% endblock %}
